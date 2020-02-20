@@ -8,12 +8,42 @@
 
 import UIKit
 
+class SimpleUILabelTableViewCell: UITableViewCell {
+    var simpleText: String = "" {
+        didSet {
+            simpleTextLabel.text = simpleText
+        }
+    }
+
+    private lazy var simpleTextLabel: UILabel = {
+        let label = UILabel()
+
+        contentView.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+        ])
+
+        return label
+    }()
+}
+
 class SimpleUILabelViewController: UIViewController, ContentViewControllerProtocol {
+    // MARK: - ContentViewControllerProtocol
     var nilOutText: Bool = false
     var cacheLabel: Bool = false
 
+    // MARK: - UI
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+
+        tableView.register(SimpleUILabelTableViewCell.self, forCellReuseIdentifier: "cell")
+
+        tableView.dataSource = self
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -36,5 +66,21 @@ class SimpleUILabelViewController: UIViewController, ContentViewControllerProtoc
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension SimpleUILabelViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? SimpleUILabelTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.simpleText = "This is a table view cell for \(indexPath)"
+
+        return cell
     }
 }

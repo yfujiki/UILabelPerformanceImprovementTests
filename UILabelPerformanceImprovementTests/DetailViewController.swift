@@ -44,9 +44,22 @@ class DetailViewController: UIViewController {
 
         guard let viewController = detailItem?.viewControllerClass.init() else { return }
 
+        addContentViewController(viewController)
+    }
+
+    private func addContentViewController(_ viewController: UIViewController) {
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+
         addChild(viewController)
         contentView.addSubview(viewController.view)
         viewController.didMove(toParent: self)
+
+        NSLayoutConstraint.activate([
+            viewController.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            viewController.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            viewController.view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            viewController.view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ])
     }
 
     private func removeCurrentChild() {
