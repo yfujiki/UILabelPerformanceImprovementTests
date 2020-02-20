@@ -24,6 +24,8 @@ class SimpleUILabelTableViewCell: UITableViewCell {
     private lazy var simpleTextLabel: UILabel = {
         let label = UILabel()
 
+        label.numberOfLines = 0
+
         contentView.addSubview(label)
 
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +33,8 @@ class SimpleUILabelTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
 
         return label
@@ -40,6 +43,8 @@ class SimpleUILabelTableViewCell: UITableViewCell {
     private lazy var attributedTextLabel: UILabel = {
         let label = UILabel()
 
+        label.numberOfLines = 0
+
         contentView.addSubview(label)
 
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +52,8 @@ class SimpleUILabelTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
 
         return label
@@ -107,14 +113,14 @@ extension SimpleUILabelViewController: UITableViewDataSource {
         }
 
         if attributedLabel {
-            let attributedString = NSAttributedString(string: "This is a table view cell for \(indexPath)", attributes: [
+            let attributedString = NSAttributedString(string: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. for \(indexPath)", attributes: [
                 NSAttributedString.Key.foregroundColor: UIColor.red
             ])
             cell.simpleText = nil
             cell.attributedText = attributedString
         } else {
             cell.attributedText = nil
-            cell.simpleText = "This is a table view cell for \(indexPath)"
+            cell.simpleText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. for \(indexPath)"
         }
 
         return cell
