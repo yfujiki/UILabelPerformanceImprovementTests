@@ -9,7 +9,7 @@
 import UIKit
 
 class SimpleUILabelTableViewCell: UITableViewCell {
-    var simpleText: String = "" {
+    var simpleText: String? = "" {
         didSet {
             simpleTextLabel.text = simpleText
         }
@@ -44,6 +44,7 @@ class SimpleUILabelViewController: UIViewController, ContentViewControllerProtoc
         tableView.register(SimpleUILabelTableViewCell.self, forCellReuseIdentifier: "cell")
 
         tableView.dataSource = self
+        tableView.delegate = self
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -82,5 +83,14 @@ extension SimpleUILabelViewController: UITableViewDataSource {
         cell.simpleText = "This is a table view cell for \(indexPath)"
 
         return cell
+    }
+}
+
+extension SimpleUILabelViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard nilOutText else { return }
+        guard let cell = cell as? SimpleUILabelTableViewCell else { return }
+
+        cell.simpleText = nil
     }
 }
