@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
+class ImageViewController: UIViewController, ContentViewControllerProtocol {
+    var nilOutText: Bool = false
+    var cacheLabel: Bool = false
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
 

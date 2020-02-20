@@ -14,6 +14,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var cacheLabelSwitch: UISwitch!
     @IBOutlet weak var contentView: UIView!
 
+    @IBAction func nilOutTextSwitchChanged(_ sender: Any) {
+        guard let currentChild = children.first as? ContentViewControllerProtocol else { return }
+        currentChild.nilOutText = nilOutTextSwitch.isOn
+    }
+
+    @IBAction func cacheLabelSwitchChanged(_ sender: Any) {
+        guard let currentChild = children.first as? ContentViewControllerProtocol else { return }
+        currentChild.cacheLabel = cacheLabelSwitch.isOn
+    }
+
     var detailItem: Screen?
 
     override func viewDidLoad() {
@@ -23,7 +33,9 @@ class DetailViewController: UIViewController {
     }
 
     private func configureView() {
-        // Update the user interface for the detail item.
+        nilOutTextSwitch.isOn = false
+        cacheLabelSwitch.isOn = false
+
         if let detail = detailItem {
             title = detail.description
         }
@@ -44,4 +56,10 @@ class DetailViewController: UIViewController {
         currentChild.view.removeFromSuperview()
     }
 }
+
+protocol ContentViewControllerProtocol where Self: UIViewController {
+    var nilOutText: Bool { get set }
+    var cacheLabel: Bool { get set }
+}
+
 

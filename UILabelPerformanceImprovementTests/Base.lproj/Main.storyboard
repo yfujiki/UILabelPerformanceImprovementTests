@@ -45,9 +45,15 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nl4-zD-PUm">
                                 <rect key="frame" x="345" y="131" width="51" height="31"/>
+                                <connections>
+                                    <action selector="nilOutTextSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="ccD-4z-FI1"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-5v-Ysw">
                                 <rect key="frame" x="345" y="188" width="51" height="31"/>
+                                <connections>
+                                    <action selector="cacheLabelSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="2Dn-et-lhz"/>
+                                </connections>
                             </switch>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cme-EB-kYf">
                                 <rect key="frame" x="0.0" y="245" width="414" height="651"/>

@@ -24,7 +24,7 @@ enum Screen {
         }
     }
 
-    var viewControllerClass: UIViewController.Type {
+    var viewControllerClass: ContentViewControllerProtocol.Type {
         switch self {
         case .simple:
             return SimpleUILabelViewController.self
