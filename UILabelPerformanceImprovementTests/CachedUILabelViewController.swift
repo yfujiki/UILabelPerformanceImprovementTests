@@ -1,5 +1,5 @@
 //
-//  AttributedUILabelViewController.swift
+//  CachedUILabelViewController.swift
 //  UILabelPerformanceImprovementTests
 //
 //  Created by Yuichi Fujiki on 21/2/20.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AttributedUILabelViewController: UIViewController, ContentViewControllerProtocol {
+class CachedUILabelViewController: UIViewController, ContentViewControllerProtocol {
     var nilOutText: Bool = false
-    var cacheLabel: Bool = false
+    var attributedLabel: Bool = false
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()

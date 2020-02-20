@@ -9,13 +9,35 @@
 import UIKit
 
 class SimpleUILabelTableViewCell: UITableViewCell {
-    var simpleText: String? = "" {
+    var simpleText: String? {
         didSet {
             simpleTextLabel.text = simpleText
         }
     }
 
+    var attributedText: NSAttributedString? {
+        didSet {
+            attributedTextLabel.attributedText = attributedText
+        }
+    }
+
     private lazy var simpleTextLabel: UILabel = {
+        let label = UILabel()
+
+        contentView.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+        ])
+
+        return label
+    }()
+
+    private lazy var attributedTextLabel: UILabel = {
         let label = UILabel()
 
         contentView.addSubview(label)
@@ -35,7 +57,11 @@ class SimpleUILabelTableViewCell: UITableViewCell {
 class SimpleUILabelViewController: UIViewController, ContentViewControllerProtocol {
     // MARK: - ContentViewControllerProtocol
     var nilOutText: Bool = false
-    var cacheLabel: Bool = false
+    var attributedLabel: Bool = false {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     // MARK: - UI
     private lazy var tableView: UITableView = {
@@ -80,7 +106,16 @@ extension SimpleUILabelViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.simpleText = "This is a table view cell for \(indexPath)"
+        if attributedLabel {
+            let attributedString = NSAttributedString(string: "This is a table view cell for \(indexPath)", attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.red
+            ])
+            cell.simpleText = nil
+            cell.attributedText = attributedString
+        } else {
+            cell.attributedText = nil
+            cell.simpleText = "This is a table view cell for \(indexPath)"
+        }
 
         return cell
     }

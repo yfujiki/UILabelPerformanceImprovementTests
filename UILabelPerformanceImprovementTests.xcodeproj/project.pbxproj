@@ -16,7 +16,7 @@
 		DBAED6AB23FF210F00928185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAED6A923FF210F00928185 /* LaunchScreen.storyboard */; };
 		DBAED6B623FF210F00928185 /* UILabelPerformanceImprovementTestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAED6B523FF210F00928185 /* UILabelPerformanceImprovementTestsTests.swift */; };
 		DBAED6C123FF27DE00928185 /* SimpleUILabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAED6C023FF27DE00928185 /* SimpleUILabelViewController.swift */; };
-		DBAED6C323FF280800928185 /* AttributedUILabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAED6C223FF280800928185 /* AttributedUILabelViewController.swift */; };
+		DBAED6C323FF280800928185 /* CachedUILabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAED6C223FF280800928185 /* CachedUILabelViewController.swift */; };
 		DBAED6C523FF284C00928185 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAED6C423FF284C00928185 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +44,7 @@
 		DBAED6B523FF210F00928185 /* UILabelPerformanceImprovementTestsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelPerformanceImprovementTestsTests.swift; sourceTree = "<group>"; };
 		DBAED6B723FF210F00928185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBAED6C023FF27DE00928185 /* SimpleUILabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleUILabelViewController.swift; sourceTree = "<group>"; };
-		DBAED6C223FF280800928185 /* AttributedUILabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedUILabelViewController.swift; sourceTree = "<group>"; };
+		DBAED6C223FF280800928185 /* CachedUILabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedUILabelViewController.swift; sourceTree = "<group>"; };
 		DBAED6C423FF284C00928185 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +96,7 @@
 				DBAED6A923FF210F00928185 /* LaunchScreen.storyboard */,
 				DBAED6AC23FF210F00928185 /* Info.plist */,
 				DBAED6C023FF27DE00928185 /* SimpleUILabelViewController.swift */,
-				DBAED6C223FF280800928185 /* AttributedUILabelViewController.swift */,
+				DBAED6C223FF280800928185 /* CachedUILabelViewController.swift */,
 				DBAED6C423FF284C00928185 /* ImageViewController.swift */,
 			);
 			path = UILabelPerformanceImprovementTests;
@@ -216,7 +216,7 @@
 				DBAED69F23FF210C00928185 /* SceneDelegate.swift in Sources */,
 				DBAED6C123FF27DE00928185 /* SimpleUILabelViewController.swift in Sources */,
 				DBAED6C523FF284C00928185 /* ImageViewController.swift in Sources */,
-				DBAED6C323FF280800928185 /* AttributedUILabelViewController.swift in Sources */,
+				DBAED6C323FF280800928185 /* CachedUILabelViewController.swift in Sources */,
 				DBAED6A123FF210C00928185 /* MasterViewController.swift in Sources */,
 				DBAED6A323FF210C00928185 /* DetailViewController.swift in Sources */,
 			);

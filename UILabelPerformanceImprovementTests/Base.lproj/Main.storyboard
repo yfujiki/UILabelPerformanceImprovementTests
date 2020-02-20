@@ -37,8 +37,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cache labels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFo-OO-cVl">
-                                <rect key="frame" x="20" y="193" width="98" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attributed labels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFo-OO-cVl">
+                                <rect key="frame" x="20" y="193" width="126" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-5v-Ysw">
                                 <rect key="frame" x="345" y="188" width="51" height="31"/>
                                 <connections>
-                                    <action selector="cacheLabelSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="2Dn-et-lhz"/>
+                                    <action selector="attributedLabelSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="2Dn-et-lhz"/>
                                 </connections>
                             </switch>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cme-EB-kYf">
@@ -83,7 +83,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="cacheLabelSwitch" destination="Tfz-5v-Ysw" id="eRl-0w-3xU"/>
+                        <outlet property="attributedLabelSwitch" destination="Tfz-5v-Ysw" id="eRl-0w-3xU"/>
                         <outlet property="contentView" destination="cme-EB-kYf" id="8cc-CJ-fWr"/>
                         <outlet property="nilOutTextSwitch" destination="nl4-zD-PUm" id="m27-oL-EZF"/>
                     </connections>

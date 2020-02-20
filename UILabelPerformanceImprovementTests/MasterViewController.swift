@@ -10,15 +10,15 @@ import UIKit
 
 enum Screen {
     case simple
-    case attribute
+    case cached
     case image
 
     var description: String {
         switch self {
         case .simple:
             return "Simple UILabel"
-        case .attribute:
-            return "Attributed Text UILabel"
+        case .cached:
+            return "Cached UILabel"
         case .image:
             return "Image"
         }
@@ -28,8 +28,8 @@ enum Screen {
         switch self {
         case .simple:
             return SimpleUILabelViewController.self
-        case .attribute:
-            return AttributedUILabelViewController.self
+        case .cached:
+            return CachedUILabelViewController.self
         case .image:
             return ImageViewController.self
         }
@@ -41,7 +41,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects: [Screen] = [
         .simple,
-        .attribute,
+        .cached,
         .image
     ]
 

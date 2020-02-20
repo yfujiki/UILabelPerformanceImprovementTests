@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var nilOutTextSwitch: UISwitch!
-    @IBOutlet weak var cacheLabelSwitch: UISwitch!
+    @IBOutlet weak var attributedLabelSwitch: UISwitch!
     @IBOutlet weak var contentView: UIView!
 
     @IBAction func nilOutTextSwitchChanged(_ sender: Any) {
@@ -19,9 +19,9 @@ class DetailViewController: UIViewController {
         currentChild.nilOutText = nilOutTextSwitch.isOn
     }
 
-    @IBAction func cacheLabelSwitchChanged(_ sender: Any) {
+    @IBAction func attributedLabelSwitchChanged(_ sender: Any) {
         guard let currentChild = children.first as? ContentViewControllerProtocol else { return }
-        currentChild.cacheLabel = cacheLabelSwitch.isOn
+        currentChild.attributedLabel = attributedLabelSwitch.isOn
     }
 
     var detailItem: Screen?
@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
 
     private func configureView() {
         nilOutTextSwitch.isOn = false
-        cacheLabelSwitch.isOn = false
+        attributedLabelSwitch.isOn = false
 
         if let detail = detailItem {
             title = detail.description
@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
 
 protocol ContentViewControllerProtocol where Self: UIViewController {
     var nilOutText: Bool { get set }
-    var cacheLabel: Bool { get set }
+    var attributedLabel: Bool { get set }
 }
 
 
