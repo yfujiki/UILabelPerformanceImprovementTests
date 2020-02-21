@@ -33,7 +33,7 @@ class ImageTableViewCell: UITableViewCell {
 }
 
 class ImageViewController: UIViewController, ContentViewControllerProtocol {
-    var nilOutText: Bool = false
+    var nilOutContent: Bool = false
     var attributedLabel: Bool = false
 
     private lazy var tableView: UITableView = {
@@ -86,7 +86,7 @@ extension ImageViewController: UITableViewDataSource {
 
 extension ImageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard nilOutText else { return }
+        guard nilOutContent else { return }
         guard let cell = cell as? ImageTableViewCell else { return }
 
         cell.simpleImage = nil

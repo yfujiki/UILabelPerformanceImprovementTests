@@ -10,13 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var nilOutTextSwitch: UISwitch!
+    @IBOutlet weak var nilOutContentSwitch: UISwitch!
     @IBOutlet weak var attributedLabelSwitch: UISwitch!
     @IBOutlet weak var contentView: UIView!
 
-    @IBAction func nilOutTextSwitchChanged(_ sender: Any) {
+    @IBAction func nilOutContentSwitchChanged(_ sender: Any) {
         guard let currentChild = children.first as? ContentViewControllerProtocol else { return }
-        currentChild.nilOutText = nilOutTextSwitch.isOn
+        currentChild.nilOutContent = nilOutContentSwitch.isOn
     }
 
     @IBAction func attributedLabelSwitchChanged(_ sender: Any) {
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
     }
 
     private func configureView() {
-        nilOutTextSwitch.isOn = false
+        nilOutContentSwitch.isOn = false
         attributedLabelSwitch.isOn = false
 
         if let detail = detailItem {
@@ -71,7 +71,7 @@ class DetailViewController: UIViewController {
 }
 
 protocol ContentViewControllerProtocol where Self: UIViewController {
-    var nilOutText: Bool { get set }
+    var nilOutContent: Bool { get set }
     var attributedLabel: Bool { get set }
 }
 

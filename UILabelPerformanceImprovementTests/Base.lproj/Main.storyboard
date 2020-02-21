@@ -31,8 +31,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nil out texts that are not visible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-aT-rgK">
-                                <rect key="frame" x="20" y="131" width="236.5" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nil out contents that are not visible" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEt-aT-rgK">
+                                <rect key="frame" x="20" y="131" width="266" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nl4-zD-PUm">
                                 <rect key="frame" x="345" y="131" width="51" height="31"/>
                                 <connections>
-                                    <action selector="nilOutTextSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="ccD-4z-FI1"/>
+                                    <action selector="nilOutContentSwitchChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="ccD-4z-FI1"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-5v-Ysw">
@@ -85,7 +85,7 @@
                     <connections>
                         <outlet property="attributedLabelSwitch" destination="Tfz-5v-Ysw" id="eRl-0w-3xU"/>
                         <outlet property="contentView" destination="cme-EB-kYf" id="8cc-CJ-fWr"/>
-                        <outlet property="nilOutTextSwitch" destination="nl4-zD-PUm" id="m27-oL-EZF"/>
+                        <outlet property="nilOutContentSwitch" destination="nl4-zD-PUm" id="m27-oL-EZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

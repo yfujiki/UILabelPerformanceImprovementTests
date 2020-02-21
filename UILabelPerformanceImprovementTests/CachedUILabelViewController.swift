@@ -20,7 +20,7 @@ class CachedUILabelTableViewCell: UITableViewCell {
 
 class CachedUILabelViewController: UIViewController, ContentViewControllerProtocol {
     // MARK: - ContentViewControllerProtocol
-    var nilOutText: Bool = false
+    var nilOutContent: Bool = false
     var attributedLabel: Bool = false {
         didSet {
             tableView.reloadData()

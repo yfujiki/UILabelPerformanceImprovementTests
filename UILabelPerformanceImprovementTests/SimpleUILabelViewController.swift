@@ -62,7 +62,7 @@ class SimpleUILabelTableViewCell: UITableViewCell {
 
 class SimpleUILabelViewController: UIViewController, ContentViewControllerProtocol {
     // MARK: - ContentViewControllerProtocol
-    var nilOutText: Bool = false
+    var nilOutContent: Bool = false
     var attributedLabel: Bool = false {
         didSet {
             tableView.reloadData()
@@ -129,7 +129,7 @@ extension SimpleUILabelViewController: UITableViewDataSource {
 
 extension SimpleUILabelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard nilOutText else { return }
+        guard nilOutContent else { return }
         guard let cell = cell as? SimpleUILabelTableViewCell else { return }
 
         cell.simpleText = nil

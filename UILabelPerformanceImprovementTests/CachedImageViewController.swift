@@ -20,7 +20,7 @@ class CachedImageTableViewCell: UITableViewCell {
 
 class CachedImageViewController: UIViewController, ContentViewControllerProtocol {
     // MARK: - ContentViewControllerProtocol
-    var nilOutText: Bool = false
+    var nilOutContent: Bool = false
     var attributedLabel: Bool = false
 
     // MARK: - Cache
