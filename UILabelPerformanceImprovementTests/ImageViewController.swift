@@ -8,12 +8,41 @@
 
 import UIKit
 
+class ImageTableViewCell: UITableViewCell {
+    var simpleImage: UIImage? {
+        didSet {
+            simpleImageView.image = simpleImage
+        }
+    }
+
+    private lazy var simpleImageView: UIImageView = {
+        let imageView = UIImageView()
+
+        contentView.addSubview(imageView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+        ])
+
+        return imageView
+    }()
+}
+
 class ImageViewController: UIViewController, ContentViewControllerProtocol {
     var nilOutText: Bool = false
     var attributedLabel: Bool = false
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "cell")
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -36,5 +65,30 @@ class ImageViewController: UIViewController, ContentViewControllerProtocol {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ImageViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 32
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ImageTableViewCell else {
+            return UITableViewCell()
+        }
+
+        cell.simpleImage = UIImage(named: "\(indexPath.row)")
+
+        return cell
+    }
+}
+
+extension ImageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard nilOutText else { return }
+        guard let cell = cell as? ImageTableViewCell else { return }
+
+        cell.simpleImage = nil
     }
 }
