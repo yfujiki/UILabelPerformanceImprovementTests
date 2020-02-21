@@ -12,6 +12,7 @@ enum Screen {
     case simple
     case cached
     case image
+    case cachedImage
 
     var description: String {
         switch self {
@@ -20,7 +21,9 @@ enum Screen {
         case .cached:
             return "Cached UILabel"
         case .image:
-            return "Image"
+            return "Simple ImageView"
+        case .cachedImage:
+            return "Cached ImageView"
         }
     }
 
@@ -32,6 +35,8 @@ enum Screen {
             return CachedUILabelViewController.self
         case .image:
             return ImageViewController.self
+        case .cachedImage:
+            return CachedImageViewController.self
         }
     }
 }
@@ -42,7 +47,8 @@ class MasterViewController: UITableViewController {
     var objects: [Screen] = [
         .simple,
         .cached,
-        .image
+        .image,
+        .cachedImage
     ]
 
     override func viewDidLoad() {
