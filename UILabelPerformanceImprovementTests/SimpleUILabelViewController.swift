@@ -104,7 +104,7 @@ class SimpleUILabelViewController: UIViewController, ContentViewControllerProtoc
 
 extension SimpleUILabelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 32
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
