@@ -83,8 +83,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="attributedLabelLabel" destination="GFo-OO-cVl" id="1iW-QD-Ypj"/>
                         <outlet property="attributedLabelSwitch" destination="Tfz-5v-Ysw" id="eRl-0w-3xU"/>
                         <outlet property="contentView" destination="cme-EB-kYf" id="8cc-CJ-fWr"/>
+                        <outlet property="nilOutContentLabel" destination="jEt-aT-rgK" id="dAo-J6-Ldm"/>
                         <outlet property="nilOutContentSwitch" destination="nl4-zD-PUm" id="m27-oL-EZF"/>
                     </connections>
                 </viewController>

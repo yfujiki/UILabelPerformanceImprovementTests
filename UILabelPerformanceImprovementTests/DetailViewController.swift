@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var nilOutContentLabel: UILabel!
+    @IBOutlet weak var attributedLabelLabel: UILabel!
     @IBOutlet weak var nilOutContentSwitch: UISwitch!
     @IBOutlet weak var attributedLabelSwitch: UISwitch!
     @IBOutlet weak var contentView: UIView!
@@ -38,6 +40,17 @@ class DetailViewController: UIViewController {
 
         if let detail = detailItem {
             title = detail.description
+
+            switch detail {
+            case .simple:
+                enableSwitch(nilOutContent: true, attributedLabel: true)
+            case .cached:
+                enableSwitch(nilOutContent: false, attributedLabel: true)
+            case .image:
+                enableSwitch(nilOutContent: true, attributedLabel: false)
+            case .cachedImage:
+                enableSwitch(nilOutContent: false, attributedLabel: false)
+            }
         }
 
         removeCurrentChild()
@@ -67,6 +80,14 @@ class DetailViewController: UIViewController {
 
         currentChild.removeFromParent()
         currentChild.view.removeFromSuperview()
+    }
+
+    private func enableSwitch(nilOutContent nilOutContentEnabled: Bool, attributedLabel attributedLabelEnabled: Bool) {
+        nilOutContentLabel.alpha = nilOutContentEnabled ? 1.0 : 0.5
+        attributedLabelLabel.alpha = attributedLabelEnabled ? 1.0 : 0.5
+
+        nilOutContentSwitch.isEnabled = nilOutContentEnabled
+        attributedLabelSwitch.isEnabled = attributedLabelEnabled
     }
 }
 
