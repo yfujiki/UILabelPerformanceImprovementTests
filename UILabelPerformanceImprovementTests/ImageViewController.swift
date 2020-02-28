@@ -70,7 +70,7 @@ class ImageViewController: UIViewController, ContentViewControllerProtocol {
 
 extension ImageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 32
+        return 192
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +78,8 @@ extension ImageViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell.simpleImage = UIImage(named: "\(indexPath.row)")
+        let imageName = "\(indexPath.row + 1)"
+        cell.simpleImage = UIImage(named: imageName)
 
         return cell
     }

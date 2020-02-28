@@ -61,7 +61,7 @@ class CachedImageViewController: UIViewController, ContentViewControllerProtocol
 
 extension CachedImageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 32
+        return 192
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +70,8 @@ extension CachedImageViewController: UITableViewDataSource {
         }
 
         if imageCache[indexPath] == nil {
-            let image = UIImage(named: "\(indexPath.row)")
+            let imageName = "\(indexPath.row + 1)"
+            let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image)
             imageCache[indexPath] = imageView
         }
